@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">And Saw Searchable Spinner</string>
+<<<<<<< HEAD
+=======
+    <string name="action_reset">Reset</string>
+    <string name="no_selection">No Selection</string>
+>>>>>>> b5fb88e885fc397ba7afb3b58d940bf06e9f7f18
 </resources>

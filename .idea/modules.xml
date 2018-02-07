@@ -4,6 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndSawSearchableSpinner-V-201802.00.1.iml" filepath="$PROJECT_DIR$/AndSawSearchableSpinner-V-201802.00.1.iml" />
       <module fileurl="file://$PROJECT_DIR$/appusagesexample/appusagesexample.iml" filepath="$PROJECT_DIR$/appusagesexample/appusagesexample.iml" />
+<<<<<<< HEAD
+=======
+      <module fileurl="file://$PROJECT_DIR$/sawsearchablespinner/sawsearchablespinner.iml" filepath="$PROJECT_DIR$/sawsearchablespinner/sawsearchablespinner.iml" />
+>>>>>>> b5fb88e885fc397ba7afb3b58d940bf06e9f7f18
     </modules>
   </component>
 </project>

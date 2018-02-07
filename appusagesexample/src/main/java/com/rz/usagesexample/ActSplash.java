@@ -4,11 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.rz.sawsearchablespinner.SearchableSpinner;
+import com.rz.sawsearchablespinner.interfaces.IStatusListener;
+import com.rz.sawsearchablespinner.interfaces.OnItemSelectedListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +22,10 @@ import java.util.List;
 public class ActSplash extends AppCompatActivity {
     private Activity activity;
     private Context context;
-    private Spinner sysSpinner;
-    private NoDefaultSpinner sysSpinnerTwo;
-    private SearchableSpinnerOne spinner1;
-    private TextView first, second;
+    private SearchableSpinner sysSearchableSpinner;
+    private SimpleListAdapter mSimpleListAdapter;
+    private SimpleArrayListAdapter mSimpleArrayListAdapter;
+    private final ArrayList<String> mStrings = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,64 +33,97 @@ public class ActSplash extends AppCompatActivity {
         setContentView(R.layout.act_splash);
         activity = this;
         context = this;
-        sysSpinner = (Spinner) findViewById(R.id.sysSpinner);
-        sysSpinnerTwo = (NoDefaultSpinner) findViewById(R.id.sysSpinnerTwo);
-        List<String> listTwo = new ArrayList<String>();
-        listTwo.add("list 1-1");
-        listTwo.add("list 2-1");
-        listTwo.add("list 3-1");
-        ArrayAdapter<String> dataAdapterTwo = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, listTwo);
-        dataAdapterTwo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sysSpinnerTwo.setAdapter(dataAdapterTwo);
-        sysSpinnerTwo.setPrompt("Select your favorite Planet!");
-        sysSpinnerTwo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        initListValues();
+        mSimpleListAdapter = new SimpleListAdapter(this, mStrings);
+        mSimpleArrayListAdapter = new SimpleArrayListAdapter(this, mStrings);
+
+        sysSearchableSpinner = (SearchableSpinner) findViewById(R.id.sysSearchableSpinner);
+        sysSearchableSpinner.setAdapter(mSimpleArrayListAdapter);
+        sysSearchableSpinner.setOnItemSelectedListener(mOnItemSelectedListener);
+        sysSearchableSpinner.setStatusListener(new IStatusListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                String selectedItem = adapterView.getItemAtPosition(position).toString();
+            public void spinnerIsOpening() {
+                //sysSearchableSpinner.hideEdit();
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                //
-            }
-        });
-        List<String> list = new ArrayList<String>();
-        list.add("list 1");
-        list.add("list 2");
-        list.add("list 3");
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, list);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sysSpinner.setAdapter(dataAdapter);
-
-        String[] data = new String[]{"a", "b", "c"};
-        first = (TextView) findViewById(R.id.first);
-        spinner1 = (SearchableSpinnerOne) findViewById(R.id.spinner1);
-        spinner1.setData(data);
-        spinner1.setDefaultText("Select country");
-        spinner1.setInvalidTextColor(getResources().getColor(R.color.colorAccent));
-        spinner1.setSelectionListener(new SearchableSpinnerOne.OnSelectionListener() {
-            @Override
-            public void onSelect(int spinnerId, int position, String value) {
-                //Log.i("Select1", "Position : " + position + " : Value : " + value + " : " + spinnerId);
-                setText(first, value);
+            public void spinnerIsClosing() {
 
             }
         });
-    }
-    public void getFirstValue(View view) {
-        //Log.i("First", spinner1.getValue() + "");
-        setText(first, spinner1.getValue());
+
     }
 
-    public void getSecondValue(View view) {
-        //Log.i("Second", spinner2.getValue() + "");
-        //setText(second, spinner2.getValue());
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (!sysSearchableSpinner.isInsideSearchEditText(event)) {
+            sysSearchableSpinner.hideEdit();
+        }
+        return super.onTouchEvent(event);
     }
 
-    private void setText(TextView textView, String text) {
-        if (text != null)
-            textView.setText(text);
-        else
-            textView.setText("Nothing selected...");
+    private OnItemSelectedListener mOnItemSelectedListener = new OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(View view, int position, long id) {
+            Toast.makeText(context, "Item on position " + position + " : " + mSimpleListAdapter.getItem(position) + " Selected", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onNothingSelected() {
+            Toast.makeText(context, "Nothing Selected", Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    private void initListValues() {
+        mStrings.add("Brigida Kurz");
+        mStrings.add("Tracy Mckim");
+        mStrings.add("Iesha Davids");
+        mStrings.add("Ozella Provenza");
+        mStrings.add("Florentina Carriere");
+        mStrings.add("Geri Eiler");
+        mStrings.add("Tammara Belgrave");
+        mStrings.add("Ashton Ridinger");
+        mStrings.add("Jodee Dawkins");
+        mStrings.add("Florine Cruzan");
+        mStrings.add("Latia Stead");
+        mStrings.add("Kai Urbain");
+        mStrings.add("Liza Chi");
+        mStrings.add("Clayton Laprade");
+        mStrings.add("Wilfredo Mooney");
+        mStrings.add("Roseline Cain");
+        mStrings.add("Chadwick Gauna");
+        mStrings.add("Carmela Bourn");
+        mStrings.add("Valeri Dedios");
+        mStrings.add("Calista Mcneese");
+        mStrings.add("Willard Cuccia");
+        mStrings.add("Ngan Blakey");
+        mStrings.add("Reina Medlen");
+        mStrings.add("Fabian Steenbergen");
+        mStrings.add("Edmond Pine");
+        mStrings.add("Teri Quesada");
+        mStrings.add("Vernetta Fulgham");
+        mStrings.add("Winnifred Kiefer");
+        mStrings.add("Chiquita Lichty");
+        mStrings.add("Elna Stiltner");
+        mStrings.add("Carly Landon");
+        mStrings.add("Hans Morford");
+        mStrings.add("Shawanna Kapoor");
+        mStrings.add("Thomasina Naron");
+        mStrings.add("Melba Massi");
+        mStrings.add("Sal Mangano");
+        mStrings.add("Mika Weitzel");
+        mStrings.add("Phylis France");
+        mStrings.add("Illa Winzer");
+        mStrings.add("Kristofer Boyden");
+        mStrings.add("Idalia Cryan");
+        mStrings.add("Jenni Sousa");
+        mStrings.add("Eda Forkey");
+        mStrings.add("Birgit Rispoli");
+        mStrings.add("Janiece Mcguffey");
+        mStrings.add("Barton Busick");
+        mStrings.add("Gerald Westerman");
+        mStrings.add("Shalanda Baran");
+        mStrings.add("Margherita Pazos");
+        mStrings.add("Yuk Fitts");
     }
 }

@@ -8,34 +8,23 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_centerHorizontal="true">
 
-        <Spinner
-            android:id="@+id/sysSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ff0000" />
-
-        <com.rz.usagesexample.NoDefaultSpinner
-            android:id="@+id/sysSpinnerTwo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/sysSpinner"
-            android:layout_marginTop="36dp" />
-
-        <com.rz.usagesexample.SearchableSpinnerOne
-            android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/sysSpinnerTwo" />
-
-        <TextView
-            android:id="@+id/first"
+        <com.rz.sawsearchablespinner.SearchableSpinner
+            android:id="@+id/sysSearchableSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/spinner1"
-            android:layout_gravity="center_horizontal"
-            android:text="Nothing selected..." />
+            android:layout_marginEnd="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center_horizontal"
+            app:BoarderColor="@color/colorPrimary"
+            app:BordersSize="1dp"
+            app:RevealEmptyText="Touch to select"
+            app:ShowBorders="true"
+            app:SpinnerExpandHeight="250dp" />
     </RelativeLayout>
 
 </RelativeLayout>
