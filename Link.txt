@@ -1,0 +1,8 @@
+How to implement pagination in Android listview
+https://rakhi577.wordpress.com/tag/android-listview-pagination/
+https://stackoverflow.com/questions/16661662/how-to-implement-pagination-in-android-listview
+https://android.jlelse.eu/android-paging-library-make-your-lists-as-efficient-as-possible-literally-in-just-an-hour-5abf797585bd
+https://stackoverflow.com/questions/9938299/how-to-implement-paginated-list-view-in-android
+http://www.ekiras.com/2015/10/android-pagination-in-custom-list-view.html
+https://github.com/nicolasjafelle/PagingListView
+https://www.codeproject.com/Questions/1018227/android-pagination-on-listView
