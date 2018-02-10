@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--LimpidEditText-->
+    <declare-styleable name="LimpidEditText">
+        <!-- LimpidEditText -->
+        <attr name="clearButtonMode">
+            <!--LimpidEditText-->
+            <enum name="never" value="0" />
+            <!--LimpidEditText-->
+            <enum name="always" value="1" />
+            <!--LimpidEditText-->
+            <enum name="whileEditing" value="2" />
+            <!--LimpidEditText-->
+            <enum name="unlessEditing" value="3" />
+        </attr>
+        <attr name="clearButtonDrawable" format="reference"/>
+    </declare-styleable>
+</resources>

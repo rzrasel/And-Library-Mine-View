@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.rz.limpidedittext.LimpidEditText
+        android:id="@+id/idOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Limpid Edit Text One"
+        app:clearButtonDrawable="@drawable/clear_button"
+        app:clearButtonMode="whileEditing" />
+
+    <com.rz.limpidedittext.LimpidEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idOne"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="8dp"
+        android:text="Limpid Edit Text Two"
+        app:clearButtonDrawable="@drawable/clear_button"
+        app:clearButtonMode="whileEditing" />
+
+</RelativeLayout>
