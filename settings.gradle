@@ -1,1 +1,1 @@
-include ':appusagesexample', ':sawsearchablespinner'
+include ':appusagesexample', ':librarysawsearchablespinner'
