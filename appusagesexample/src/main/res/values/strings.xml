@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">And Library Varnish View Spinal List Drawer</string>
+    <string name="layout_str">Oct 24, 2013... no default way to slide the activity along with navigation drawer we can do it through code. As suggested in the above answer by mick88 following is the code snippet from my project. my profile.xml file android.support.v4.widget.DrawerLayout Oct 24, 2013 - ... no default way to slide the activity along with navigation drawer we can do it through code. As suggested in the above answer by mick88 following is the code snippet from my project. my profile.xml file android.support.v4.widget.DrawerLayout Oct 24, 2013 - ... no default way to slide the activity along with navigation drawer we can do it through code. As suggested in the above answer by mick88 following is the code snippet from my project. my profile.xml file android.support.v4.widget.DrawerLayout</string>
+    <string name="action_settings">Settings</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut nisi a ligula porta fringilla eget vitae tellus. Mauris at nisi sed nisi dictum commodo. Fusce mauris purus, aliquet sit amet suscipit eget, scelerisque quis quam. Proin vulputate, lectus eu molestie accumsan, nunc nunc ornare metus, eu tristique eros sem quis nunc. Nam vitae lorem mi. Nulla vitae tempor dolor. Nulla convallis nisl a mi porttitor a tempor tortor aliquet.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

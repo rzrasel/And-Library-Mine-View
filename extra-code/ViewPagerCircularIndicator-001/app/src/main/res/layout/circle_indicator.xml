@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<linearlayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="#00000000"
+    android:orientation="vertical">
+
+    <linearlayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <!--<imageview
+            android:id="@+id/btn1"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/holo_circle">
+
+            <imageview
+                android:id="@+id/btn2"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="10dp"
+                android:layout_torightof="@id/btn1"
+                android:src="@drawable/holo_circle">
+
+                <imageview
+                    android:id="@+id/btn3"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_torightof="@id/btn2"
+                    android:src="@drawable/holo_circle"></imageview>
+            </imageview>
+        </imageview>
+    </linearlayout>
+
+    <linearlayout
+        android:id="@+id/buttonlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <button
+            android:id="@+id/btnNewUserPopup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignparentleft="true"
+            android:layout_weight=".5"
+            android:text=" New User "></button>
+
+        <button
+            android:id="@+id/btnSignInPopup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignparentright="true"
+            android:layout_weight=".5"
+            android:text="Sign In">
+
+        </button>-->
+    </linearlayout>
+</linearlayout>

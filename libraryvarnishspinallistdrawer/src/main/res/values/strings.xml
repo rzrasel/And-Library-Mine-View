@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Library Varnish Spinal List Drawer</string>
+    <string name="spinal_list_nav_drawer_open">Spinal List Navigation Drawer Open</string>
+    <string name="spinal_list_nav_drawer_close">Spinal List Navigation Drawer Close</string>
+</resources>
