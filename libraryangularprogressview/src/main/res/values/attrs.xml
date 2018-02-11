@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AngularProgressView">
+        <attr name="apv_type" format="enum">
+            <enum name="kite" value="0" />
+            <enum name="triangle" value="1" />
+        </attr>
+        <attr name="apv_number_of_angles" format="integer" />
+        <attr name="apv_color" format="color" />
+        <attr name="apv_duration" format="integer" />
+        <attr name="apv_figure_padding" format="dimension" />
+        <attr name="apv_style" format="reference" />
+    </declare-styleable>
+</resources>
