@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00ff0000">
+
+    <!--<ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fillViewport="true"
+        android:overScrollMode="never">-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:background="@drawable/test_ui"
+        android:orientation="horizontal"
+        android:tag="BackgroundLayer">
+
+        <RelativeLayout
+            android:id="@+id/idColumnLeft"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00fff000"
+            android:tag="COLUMN_LEFT">
+
+            <!--<TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="ROW_01" />-->
+            <RelativeLayout
+                android:id="@+id/idRowOne"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="#73ffffff"
+                android:tag="ROW_01">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="ROW_01_FRAGMENT_2" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/idRowTow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/idRowOne"
+                android:background="#73000fff"
+                android:orientation="vertical"
+                android:tag="ROW_02">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ROW_02" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ROW_02" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ROW_02" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ROW_02" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ROW_02" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ROW_02" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ROW_02" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ROW_02" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ROW_02" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ROW_02" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ROW_02" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ROW_02" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/idRowThree"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_below="@+id/idRowTow"
+                android:background="#73000000"
+                android:tag="ROW_03">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="ROW_03" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/idColumnRight"
+            android:layout_width="37dp"
+            android:layout_height="match_parent"
+            android:layout_alignRight="@+id/idColumnLeft"
+            android:tag="COLUMN_RIGHT">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#73000000"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:background="#73000000" />
+
+                <Button
+                    android:id="@+id/sysBtnRegi"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:background="#73ff0000"
+                    android:text="+" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+    <!--</ScrollView>-->
+</RelativeLayout>

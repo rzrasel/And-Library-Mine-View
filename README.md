@@ -2,8 +2,6 @@
 And Varnish View Intro Viewpager
 
 
-GIT Command
-
 ### GIT Command
 ```git_command
 git init

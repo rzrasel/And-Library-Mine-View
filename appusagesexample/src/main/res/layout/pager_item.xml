@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/sysInstructions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="All good things must come to an end.” And with that,
+         iconic Paris concept store Colette announced that it would close
+          its doors on December 20th. Like so many, we are sad to see the
+           shopping destination go and wanted to do something to celebrate what
+            it meant to all who shopped, discovered, and reveled in its magic.
+             So before the lights go out on Rue Saint-Honoré, we teamed up with
+              co-founder Sarah Andelman to bring a little of Colette ‘Home for
+               the Holidays’ for the very first time outside of the store and at STORY!" />
+
+</LinearLayout>

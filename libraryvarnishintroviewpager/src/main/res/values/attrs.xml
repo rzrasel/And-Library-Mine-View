@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ViewPagerIndicator">
+        <attr name="itemSize" format="dimension" />
+        <attr name="itemScale" format="float" />
+        <attr name="itemSelectedTint" format="color" />
+        <attr name="itemTint" format="color" />
+        <attr name="delimiterSize" format="dimension" />
+        <attr name="itemIcon" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="ViewPagerSkipNext">
+        <attr name="btnTextSkip" format="string" />
+        <attr name="btnTextColorSkip" format="color" />
+        <attr name="btnTextSizeSkip" format="dimension" />
+        <attr name="btnTextStyleSkip" format="enum">
+            <enum name="NORMAL" value="1" />
+            <enum name="BOLD" value="2" />
+        </attr>
+        <attr name="btnBorderStyleSkip" format="reference" />
+
+        <attr name="btnTextNext" format="string" />
+        <attr name="btnTextColorNext" format="color" />
+        <attr name="btnTextSizeNext" format="dimension" />
+        <attr name="btnTextStyleNext" format="enum">
+            <enum name="NORMAL" value="1" />
+            <enum name="BOLD" value="2" />
+        </attr>
+        <attr name="btnBorderStyleNext" format="reference" />
+
+        <attr name="btnTextGo" format="string" />
+        <attr name="btnTextColorGo" format="color" />
+        <attr name="btnTextSizeGo" format="dimension" />
+        <attr name="btnTextStyleGo" format="enum">
+            <enum name="NORMAL" value="1" />
+            <enum name="BOLD" value="2" />
+        </attr>
+        <attr name="btnBorderStyleGo" format="reference" />
+
+
+        <attr name="btnStyle" format="reference" />
+        <attr name="myicon" format="reference" />
+        <attr name="iconPosition" format="enum">
+            <enum name="TEXT_ONLY" value="1" />
+            <enum name="ICON_ONLY" value="2" />
+            <enum name="TEXT_WITH_LEFT_ICON" value="3" />
+            <enum name="TEXT_WITH_RIGHT_ICON" value="4" />
+        </attr>
+        <attr name="android:textColor" />
+        <attr name="android:background" />
+        <attr name="android:text" />
+        <attr name="android:textAllCaps" />
+    </declare-styleable>
+</resources>
