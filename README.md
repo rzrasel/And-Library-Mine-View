@@ -1,12 +1,12 @@
-# And-Library-Mine-View
-And Library Mine View
+# And-Armor-Pagination
+And Armor Pagination
 
 ### GIT Command
 ```git_command
 git init
 git remote add origin https://github.com/rzrasel/And-Library-Mine-View.git
 git remote -v
-git fetch && git checkout master
+git fetch && git checkout And-Armor-Pagination
 git add .
 git commit -m "Add Readme & Git Commit File"
 git pull
