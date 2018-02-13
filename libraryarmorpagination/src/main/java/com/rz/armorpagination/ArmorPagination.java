@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 public class ArmorPagination extends LinearLayout {
     private Context context;
     private int pageActive = 0;
+    private int currentPage = 0;
     private HorizontalScrollView horizontalScrollView;
     private LinearLayout linearLayout;
     private int totalNumOfItems = 1000;
@@ -167,3 +168,5 @@ public class ArmorPagination extends LinearLayout {
 }
 //https://github.com/paulononaka/Android-PaginationLayoutSample/blob/master/src/com/paulononaka/PaginationLayout.java
 //https://github.com/aritraroy/PatternLockView
+//http://www.devexchanges.info/2015/05/showhide-layouts-when-scroll-listview.html
+//https://colinyeoh.wordpress.com/2012/10/07/simple-android-animation-on-view-gonevisible/
