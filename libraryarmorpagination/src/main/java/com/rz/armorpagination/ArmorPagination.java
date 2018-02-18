@@ -21,6 +21,7 @@ import android.widget.RelativeLayout;
 
 public class ArmorPagination extends LinearLayout {
     private Context context;
+    private OnPagerClickListener onPagerClickListener;
     private int pageActive = 0;
     private int currentPage = 0;
     private HorizontalScrollView horizontalScrollView;
@@ -236,7 +237,7 @@ public class ArmorPagination extends LinearLayout {
             pageBtns[forCounter].setText("" + (i + 1));
             pageBtns[forCounter].setTag("" + i);
             pageBtns[forCounter].setTextSize(16);
-            pageBtns[forCounter].setOnClickListener(new PagerOnClickListener());
+            pageBtns[forCounter].setOnClickListener(new OnPagerBtnClickListener());
             pageBtns[forCounter].setBackgroundResource(R.drawable.pager_gradient_current);
             //pageBtns[forCounter].setTextColor(Color.parseColor("#006400"));
             pageBtns[forCounter].setTextColor(Color.parseColor("#717171"));
@@ -274,14 +275,28 @@ public class ArmorPagination extends LinearLayout {
         }
     }
 
-    private class PagerOnClickListener implements OnClickListener {
+    public class OnPagerBtnClickListener implements OnClickListener {
         @Override
         public void onClick(View argView) {
             int tagValue = Integer.parseInt(argView.getTag().toString());
+            if (tagValue == currentPage) {
+                System.out.println("TAG_CURRENT: " + tagValue);
+                return;
+            }
+            currentPage = tagValue + 1;
+            int startingNumber = tagValue * numOfItemsPerPage;
+            int endingNumber = startingNumber + numOfItemsPerPage;
             System.out.println("TAG: " + tagValue);
-            setCurrentPage(tagValue + 1);
+            if (onPagerClickListener != null) {
+                onPagerClickListener.onClick(currentPage, startingNumber, endingNumber);
+            }
+            setCurrentPage(currentPage);
             onBuildPager();
         }
+    }
+
+    public interface OnPagerClickListener {
+        public void onClick(int argCurrentPage, int argStart, int argEnd);
     }
 
     public void onSetDrawable(View argView, int argResId) {
@@ -301,6 +316,11 @@ public class ArmorPagination extends LinearLayout {
 
     public ArmorPagination setTotalNumOfItems(int argTotalNumOfItems) {
         this.totalNumOfItems = argTotalNumOfItems;
+        return this;
+    }
+
+    public ArmorPagination setPagerClickListener(OnPagerClickListener argOnPagerClickListener) {
+        this.onPagerClickListener = argOnPagerClickListener;
         return this;
     }
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
@@ -26,6 +27,12 @@ public class ActSplash extends AppCompatActivity {
         sysIdPagination = (ArmorPagination) findViewById(R.id.sysIdPagination);
         sysIdPagination.setTotalNumOfItems(150)
                 .setNumOfItemsPerPage(10)
+                .setPagerClickListener(new ArmorPagination.OnPagerClickListener() {
+                    @Override
+                    public void onClick(int argCurrentPage, int argStart, int argEnd) {
+                        System.out.println("c: " + argCurrentPage + " s: " + argStart + " e: " + argEnd);
+                    }
+                })
                 .setCurrentPage(1)
                 .onBuildPager();
         /*ArmorPagination armorPagination = new ArmorPagination(this);
