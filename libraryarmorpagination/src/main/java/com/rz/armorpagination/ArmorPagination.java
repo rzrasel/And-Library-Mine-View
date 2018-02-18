@@ -33,8 +33,8 @@ public class ArmorPagination extends LinearLayout {
     private Button btnLast;
     private Button[] pageBtns;
     private int noOfBtns;
-    private int pxBtnWidth = 36;
-    private int pxBtnHight = 26;
+    private int pxBtnWidth = 40;
+    private int pxBtnHight = 32;
 
     public ArmorPagination(Context argContext) {
         this(argContext, null);
@@ -93,11 +93,11 @@ public class ArmorPagination extends LinearLayout {
         linearLayout.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
         //linearLayout.setBackgroundColor(Color.GRAY);
         linearLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-        linearLayout.addView(btnFirst);
-        linearLayout.addView(btnPrevious);
+        /*linearLayout.addView(btnFirst);
+        linearLayout.addView(btnPrevious);*/
         createPaginationButton();
-        linearLayout.addView(btnNext);
-        linearLayout.addView(btnLast);
+        /*linearLayout.addView(btnNext);
+        linearLayout.addView(btnLast);*/
         //linearLayout.setVisibility(LinearLayout.INVISIBLE);
         //setPagerButton();
     }
@@ -189,6 +189,9 @@ public class ArmorPagination extends LinearLayout {
             countMax = noOfBtns;
         } else {
             countMax = currentPage + midPoint + 1;
+            if (countMax <= totalButtonShown) {
+                countMax = totalButtonShown;
+            }
             if (countMax >= noOfBtns) {
                 countMax = noOfBtns;
             }
@@ -224,21 +227,48 @@ public class ArmorPagination extends LinearLayout {
             int dpWidth = (int) Utils.dpToPixel(getContext(), pxBtnWidth);
             int dpHeight = (int) Utils.dpToPixel(getContext(), pxBtnHight);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dpWidth, dpHeight);
+            //RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dpWidth, LayoutParams.WRAP_CONTENT);
             layoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
+            //layoutParams.setMargins(left, top, right, bottom);
+            //layoutParams.setMargins(120, 120, 120, 120);
             pageBtns[forCounter].setGravity(Gravity.CENTER);
             pageBtns[forCounter].setLayoutParams(layoutParams);
             pageBtns[forCounter].setText("" + (i + 1));
             pageBtns[forCounter].setTag("" + i);
-            pageBtns[forCounter].setTextSize(14);
+            pageBtns[forCounter].setTextSize(16);
             pageBtns[forCounter].setOnClickListener(new PagerOnClickListener());
-            pageBtns[forCounter].setBackgroundResource(R.drawable.half_gradient);
+            pageBtns[forCounter].setBackgroundResource(R.drawable.pager_gradient_current);
+            //pageBtns[forCounter].setTextColor(Color.parseColor("#006400"));
+            pageBtns[forCounter].setTextColor(Color.parseColor("#717171"));
             linearLayout.addView(pageBtns[forCounter]);
             /*if (i == midPoint) {
                 pageBtns[i].setTypeface(pageBtns[i].getTypeface(), Typeface.BOLD);
             }*/
             if (currentPage == i) {
                 pageBtns[forCounter].setTypeface(pageBtns[forCounter].getTypeface(), Typeface.BOLD);
-                pageBtns[forCounter].setTextColor(Color.parseColor("#ff0000"));
+                pageBtns[forCounter].setTextColor(Color.parseColor("#feffff"));
+                pageBtns[forCounter].setBackgroundResource(R.drawable.pager_gradient_current);
+            }
+            if (forCounter == 0) {
+                pageBtns[forCounter].setBackgroundResource(R.drawable.pager_gradient_first);
+                if (currentPage == countStart) {
+                    pageBtns[forCounter].setBackgroundResource(R.drawable.pager_gradient_current_first);
+                }
+            }
+            if (i == countMax - 1) {
+                pageBtns[forCounter].setBackgroundResource(R.drawable.pager_gradient_last);
+                if (currentPage == countMax - 1) {
+                    pageBtns[forCounter].setBackgroundResource(R.drawable.pager_gradient_current_last);
+                }
+            }
+            LayoutParams layoutparams = (LinearLayout.LayoutParams) pageBtns[forCounter].getLayoutParams();
+            //layoutparams.setMargins(25,25,25,25);
+            layoutparams.setMargins(8, 0, 8, 0);
+            pageBtns[forCounter].setLayoutParams(layoutparams);
+            System.out.println("for_count: " + forCounter + " cmax: " + countMax);
+            pageBtns[forCounter].setBackgroundResource(R.drawable.pg_gd_one);
+            if (currentPage == i) {
+                pageBtns[forCounter].setBackgroundResource(R.drawable.pg_gd_one_current);
             }
             forCounter++;
         }

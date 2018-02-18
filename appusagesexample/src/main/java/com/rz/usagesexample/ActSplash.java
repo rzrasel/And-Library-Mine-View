@@ -26,7 +26,7 @@ public class ActSplash extends AppCompatActivity {
         sysIdPagination = (ArmorPagination) findViewById(R.id.sysIdPagination);
         sysIdPagination.setTotalNumOfItems(150)
                 .setNumOfItemsPerPage(10)
-                .setCurrentPage(3)
+                .setCurrentPage(1)
                 .onBuildPager();
         /*ArmorPagination armorPagination = new ArmorPagination(this);
         armorPagination.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT));
