@@ -296,7 +296,7 @@ public class ArmorPagination extends LinearLayout {
     }
 
     public interface OnPagerClickListener {
-        public void onClick(int argCurrentPage, int argStart, int argEnd);
+        public void onClick(int argCurrentPage, int argStarting, int argEnding);
     }
 
     public void onSetDrawable(View argView, int argResId) {
