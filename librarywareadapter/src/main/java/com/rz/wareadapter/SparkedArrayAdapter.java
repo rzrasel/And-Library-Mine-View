@@ -83,6 +83,7 @@ public class SparkedArrayAdapter<T> extends ArrayAdapter<T> {
             listFilterItems.addAll(listAdapterItems);
         } else {
             for (Object object : listAdapterItems) {
+            //
                 if (wp.getCountry().toLowerCase(Locale.getDefault()).contains(argCharText)) {
                     listFilterItems.add(object);
                 }
