@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/And-Champ-Player-V-201802.00.1.iml" filepath="$PROJECT_DIR$/And-Champ-Player-V-201802.00.1.iml" />
       <module fileurl="file://$PROJECT_DIR$/appusagesexample/appusagesexample.iml" filepath="$PROJECT_DIR$/appusagesexample/appusagesexample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/librarychampplayer/librarychampplayer.iml" filepath="$PROJECT_DIR$/librarychampplayer/librarychampplayer.iml" />
     </modules>
   </component>
 </project>
