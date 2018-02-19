@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RSVPMediaController">
+        <attr name="rsvp_scalable" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="RSVPVideoPlayer">
+        <attr name="rsvp_fitXY" format="boolean" />
+        <attr name="rsvp_autoRotation" format="boolean" />
+    </declare-styleable>
+
+</resources>
