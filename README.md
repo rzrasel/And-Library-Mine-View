@@ -1,12 +1,12 @@
-# And-Library-Mine-View
-And Library Mine View
+# And-Champ-Player
+And Champ Player
 
 ### GIT Command
 ```git_command
 git init
 git remote add origin https://github.com/rzrasel/And-Library-Mine-View.git
 git remote -v
-git fetch && git checkout master
+git fetch && git checkout And-Champ-Player
 git add .
 git commit -m "Add Readme & Git Commit File"
 git pull
