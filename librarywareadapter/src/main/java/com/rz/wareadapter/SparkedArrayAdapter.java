@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Objects;
 
 /**
@@ -19,6 +20,7 @@ public class SparkedArrayAdapter<T> extends ArrayAdapter<T> {
     private Context context;
     private int layoutResourceId;
     private ArrayList<T> listAdapterItems; // = new ArrayList<ModelInit>();
+    private ArrayList<T> listFilterItems;
     private OnFieldListenerHandler onFieldListenerHandler = null;
     private OnEventsListenerHandler onEventsListenerHandler = null;
 
@@ -27,6 +29,8 @@ public class SparkedArrayAdapter<T> extends ArrayAdapter<T> {
         this.context = argContext;
         this.layoutResourceId = argLayoutResourceId;
         this.listAdapterItems = argListItems;
+        listFilterItems = new ArrayList<T>();
+        this.listFilterItems.addAll(argListItems);
     }
 
     @Override
@@ -71,6 +75,21 @@ public class SparkedArrayAdapter<T> extends ArrayAdapter<T> {
         //System.out.println("|----|------------|AdapterData|----|" + argPosition);
         return rowViewRoot;
     }
+
+    /*public void filter(String argCharText) {
+        argCharText = argCharText.toLowerCase(Locale.getDefault());
+        listFilterItems.clear();
+        if (argCharText.length() == 0) {
+            listFilterItems.addAll(listAdapterItems);
+        } else {
+            for (Object object : listAdapterItems) {
+                if (wp.getCountry().toLowerCase(Locale.getDefault()).contains(argCharText)) {
+                    listFilterItems.add(object);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }*/
 
     private void onInitializedLayoutFields(Context argContext, View argRootView) {
         for (int i = 0; i < listRowViewFields.size(); i++) {
