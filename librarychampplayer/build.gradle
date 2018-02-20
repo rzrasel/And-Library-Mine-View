@@ -1,10 +1,8 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 26
-
-
-
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfiguration.extCompileSdkVersion
     defaultConfig {
         minSdkVersion extMinSdkVersion
         targetSdkVersion extTargetSdkVersion
@@ -12,7 +10,7 @@ android {
         versionName extVersionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        archivesBaseName = "com.rz.champplayer"
+        archivesBaseName = globalConfiguration.extLibraryId
         version = android.defaultConfig.versionName
 
     }

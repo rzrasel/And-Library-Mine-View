@@ -1,4 +1,4 @@
-package com.rz.champplayer;
+package com.rz.champplayer.rsvplayer;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -16,6 +16,8 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+
+import com.rz.champplayer.R;
 
 import java.util.Formatter;
 import java.util.Locale;

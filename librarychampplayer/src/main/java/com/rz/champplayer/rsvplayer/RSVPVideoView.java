@@ -1,4 +1,4 @@
-package com.rz.champplayer;
+package com.rz.champplayer.rsvplayer;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+
+import com.rz.champplayer.R;
 
 import java.io.IOException;
 import java.util.Map;

@@ -34,4 +34,6 @@ ext {
     extTargetSdkVersion = 26
     extVersionCode = 201802001
     extVersionName = "201802.00.1"
+    extLibraryId = "com.rz.champplayer"
 }
+//https://github.com/miaoyongjun/MVideo

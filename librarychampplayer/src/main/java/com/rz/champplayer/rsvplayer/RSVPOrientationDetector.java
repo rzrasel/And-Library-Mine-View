@@ -1,10 +1,12 @@
-package com.rz.champplayer;
+package com.rz.champplayer.rsvplayer;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.hardware.SensorManager;
 import android.util.Log;
 import android.view.OrientationEventListener;
+
+import com.rz.champplayer.BuildConfig;
 
 
 public class RSVPOrientationDetector {
