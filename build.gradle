@@ -25,3 +25,24 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+ext {
+    extAppName = "Wire Adapter"
+    extCompileSdkVersion = 26
+    extBuildToolsVersion = '26.0.2'
+
+    extMinSdkVersion = 15
+    extTargetSdkVersion = 26
+    extVersionCode = 201802002
+    extVersionName = "201802.00.2"
+
+    supportLibraryVersion = '27.0.2'
+    appcompatLibraryVersion = "26.1.0"
+    playServicesVersion = '11.8.0'
+
+    androidDependencies = [
+            appcompat_v7: "com.android.support:appcompat-v7:${supportLibraryVersion}",
+            design      : "com.android.support:design:${supportLibraryVersion}",
+            cardview    : "com.android.support:cardview-v7:${supportLibraryVersion}",
+            location    : "com.google.android.gms:play-services-location:${playServicesVersion}",
+    ]
+}
