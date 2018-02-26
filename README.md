@@ -17,6 +17,7 @@ git reflog expire --all --expire=now
 git gc --prune=now --aggressive
 
 Garbage collecting dead data
+git count-objects -v
 git reflog expire --expire=now --all
 git gc --prune=now
 git push --all --force
