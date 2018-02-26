@@ -176,7 +176,7 @@ public class ArmorPagination extends LinearLayout {
         int val = totalNumOfItems % numOfItemsPerPage;
         val = (val == 0) ? 0 : 1;
         noOfBtns = totalNumOfItems / numOfItemsPerPage + val;
-        System.out.println("Value: " + val + " -no: " + noOfBtns);
+        //System.out.println("Value: " + val + " -no: " + noOfBtns);
         int totalButtonShown = 5;
         int midPoint = totalButtonShown / 2;
         int countMax = totalButtonShown;
@@ -215,7 +215,7 @@ public class ArmorPagination extends LinearLayout {
             System.out.println("MID: " + midPoint);
         }
         System.out.println("MIDOO: " + midPoint * 2);*/
-        System.out.println("COUNT_MAX: " + countMax + " CURR: " + currentPage);
+        //System.out.println("COUNT_MAX: " + countMax + " CURR: " + currentPage);
         pageBtns = new Button[totalButtonShown];
         int forCounter = 0;
         for (int i = countStart; i < countMax; i++) {
@@ -266,7 +266,7 @@ public class ArmorPagination extends LinearLayout {
             //layoutparams.setMargins(25,25,25,25);
             layoutparams.setMargins(8, 0, 8, 0);
             pageBtns[forCounter].setLayoutParams(layoutparams);
-            System.out.println("for_count: " + forCounter + " cmax: " + countMax);
+            //System.out.println("for_count: " + forCounter + " cmax: " + countMax);
             pageBtns[forCounter].setBackgroundResource(R.drawable.pg_gd_one);
             if (currentPage == i) {
                 pageBtns[forCounter].setBackgroundResource(R.drawable.pg_gd_one_current);
@@ -280,14 +280,17 @@ public class ArmorPagination extends LinearLayout {
         public void onClick(View argView) {
             int tagValue = Integer.parseInt(argView.getTag().toString());
             if (tagValue == currentPage) {
-                System.out.println("TAG_CURRENT: " + tagValue);
+                //System.out.println("TAG_CURRENT: " + tagValue);
                 return;
             }
             currentPage = tagValue + 1;
             int startingNumber = tagValue * numOfItemsPerPage;
             int endingNumber = startingNumber + numOfItemsPerPage;
-            System.out.println("TAG: " + tagValue);
+            //System.out.println("TAG: " + tagValue);
             if (onPagerClickListener != null) {
+                if (endingNumber > totalNumOfItems) {
+                    endingNumber = (totalNumOfItems - startingNumber) + startingNumber;
+                }
                 onPagerClickListener.onClick(currentPage, startingNumber, endingNumber);
             }
             setCurrentPage(currentPage);
@@ -336,7 +339,7 @@ public class ArmorPagination extends LinearLayout {
         val = (val == 0) ? 0 : 1;
         noOfBtns = totalNumOfItems / numOfItemsPerPage + val;
         System.out.println("Value: " + val + " -no: " + noOfBtns);*/
-        System.out.println("setPagerButton:============================");
+        //System.out.println("setPagerButton:============================");
         removeAllViews();
         //removeView(linearLayout);
         //initView();

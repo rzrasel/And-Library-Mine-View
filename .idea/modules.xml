@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndArmorPagination-V-201802.00.1.iml" filepath="$PROJECT_DIR$/AndArmorPagination-V-201802.00.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/And-Armor-Pagination-000.iml" filepath="$PROJECT_DIR$/And-Armor-Pagination-000.iml" />
       <module fileurl="file://$PROJECT_DIR$/appusagesexample/appusagesexample.iml" filepath="$PROJECT_DIR$/appusagesexample/appusagesexample.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraryarmorpagination/libraryarmorpagination.iml" filepath="$PROJECT_DIR$/libraryarmorpagination/libraryarmorpagination.iml" />
     </modules>

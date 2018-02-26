@@ -49,6 +49,8 @@ public class ActPaginationImp extends AppCompatActivity {
 
     private void loadList(int argStarting, int argEnding) {
         ArrayList<String> sort = new ArrayList<String>();
+        System.out.println("STARTING: " + argStarting + " - ENDING: " + argEnding);
+        System.out.println("PagerButton:============================");
         /*int start = argStarting * NUM_ITEMS_PAGE;
         (start) + NUM_ITEMS_PAGE;*/
         for (int i = argStarting; i < argEnding; i++) {
@@ -57,9 +59,9 @@ public class ActPaginationImp extends AppCompatActivity {
             } else {
                 break;
             }*/
-            if (i >= dataList.size()) {
+            /*if (i >= dataList.size()) {
                 break;
-            }
+            }*/
             sort.add(dataList.get(i));
         }
         arrayAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, sort);

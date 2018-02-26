@@ -1,7 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfiguration.extCompileSdkVersion
+
     defaultConfig {
         applicationId "com.rz.usagesexample"
         minSdkVersion extMinSdkVersion
