@@ -11,6 +11,16 @@ git add .
 git commit -m "Add Readme & Git Commit File"
 git pull
 git push --all
+
+Reduce git repository size
+git reflog expire --all --expire=now
+git gc --prune=now --aggressive
+
+Garbage collecting dead data
+git reflog expire --expire=now --all
+git gc --prune=now
+git push --all --force
+git push --tags --force
 ```
 ### Installation
 Maven Repositories Installation
