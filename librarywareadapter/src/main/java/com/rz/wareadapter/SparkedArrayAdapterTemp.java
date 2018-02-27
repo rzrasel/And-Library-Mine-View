@@ -15,7 +15,10 @@ import java.util.Objects;
 /**
  * Created by Rz Rasel on 2018-02-11.
  */
-
+/**
+ * @deprecated As of 2018-02-27
+ */
+@Deprecated
 public class SparkedArrayAdapterTemp<T> extends ArrayAdapter<T> {
     private Context context;
     private int layoutResourceId;

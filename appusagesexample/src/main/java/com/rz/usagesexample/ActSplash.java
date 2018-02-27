@@ -53,7 +53,7 @@ public class ActSplash extends AppCompatActivity {
         eachRowDataItems.put("sysDrawerTitle", "Title-02");
         eachRowDataItems.put("sysDrawerDescription", "Description-02");
         //spinalRowDrawerDraw.spinalDrawerMenu.onSetItemData(eachRowDataItems, SecondFragment.class);
-        modelDrawerMenuDataItems.add(SparkedModelRowScope.onGetSetRow(eachRowDataItems, (String) null, SparkedModelRowScope.LISTENER_TYPE.NONE));
+        modelDrawerMenuDataItems.add(SparkedModelRowScope.onGetSetRow(eachRowDataItems, (String) null, SparkedModelRowScope.LISTENER_TYPE.URL));
         //modelDrawerListItems = spinalRowDrawerDraw.spinalDrawerMenu.onGetDataList();
     }
 

@@ -103,9 +103,9 @@ public class SparkedArrayAdapter<T> extends ArrayAdapter<T> {
                     int resourceId = Integer.valueOf(hashMapRowIdValueItem.get(fieldResourceId));
                     rowField.setImageDrawable(context.getResources().getDrawable(resourceId));
                 }
-                System.out.println(itemField.getFieldResourceId());
+                //System.out.println(itemField.getFieldResourceId());
             }
-            //System.out.println("------" + fieldResourceId);
+            //System.out.println("------" + itemScope.getListenerType());
         }
     }
 
