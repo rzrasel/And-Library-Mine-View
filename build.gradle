@@ -32,8 +32,8 @@ ext {
 
     extMinSdkVersion = 15
     extTargetSdkVersion = 26
-    extVersionCode = 201802003
-    extVersionName = "201802.00.3"
+    extVersionCode = 201802004
+    extVersionName = "201802.00.4"
 
     supportLibraryVersion = '27.0.2'
     appcompatLibraryVersion = "26.1.0"
