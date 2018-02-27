@@ -9,17 +9,17 @@ import android.widget.ListView;
  * Created by Rz Rasel on 2018-02-19.
  */
 
-public class NoneScrollListView extends ListView {
+public class NixScrollListView extends ListView {
 
-    public NoneScrollListView(Context argContext) {
+    public NixScrollListView(Context argContext) {
         super(argContext);
     }
 
-    public NoneScrollListView(Context argContext, AttributeSet argAttrs) {
+    public NixScrollListView(Context argContext, AttributeSet argAttrs) {
         super(argContext, argAttrs);
     }
 
-    public NoneScrollListView(Context argContext, AttributeSet argAttrs, int argDefStyle) {
+    public NixScrollListView(Context argContext, AttributeSet argAttrs, int argDefStyle) {
         super(argContext, argAttrs, argDefStyle);
     }
 
