@@ -1,12 +1,12 @@
-# And-Library-Mine-View
-And Library Mine View
+# And-Straw-Youtube-Player
+And Straw Youtube Player
 
 ### GIT Command
 ```git_command
 git init
 git remote add origin https://github.com/rzrasel/And-Library-Mine-View.git
 git remote -v
-git fetch && git checkout master
+git fetch && git checkout And-Straw-Youtube-Player
 git add .
 git commit -m "Add Readme & Git Commit File"
 git pull
