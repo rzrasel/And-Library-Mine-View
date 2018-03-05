@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/And-Straw-Youtube-Player.iml" filepath="$PROJECT_DIR$/And-Straw-Youtube-Player.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appusepagination/appusepagination.iml" filepath="$PROJECT_DIR$/appusepagination/appusepagination.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strawyoutubeplayer/strawyoutubeplayer.iml" filepath="$PROJECT_DIR$/strawyoutubeplayer/strawyoutubeplayer.iml" />
+    </modules>
+  </component>
+</project>

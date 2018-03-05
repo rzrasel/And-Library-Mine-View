@@ -1,14 +1,22 @@
 apply plugin: 'com.android.application'
-
+ext {
+    APP_NAME = "Use Pagination"
+}
 android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.rz.usagesexample"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 201803001
+        versionName "201803.00.1"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        def date = new Date();
+        //def formattedDate = date.format('yyyyMMddHHmmss')
+        def formattedDate = date.format('yyyyMMdd')
+        def apkName = APP_NAME + ' - (' + applicationId + ') ' + 'V-' + defaultConfig.versionName + ' - ' + formattedDate + ' '
+        setProperty("archivesBaseName", "$apkName")
     }
     buildTypes {
         release {
@@ -29,7 +37,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     compile 'com.rz.armorpagination.aar:ArmorPagination-V-201802.01.2@aar'
     compile 'com.rz.wareadapter.aar:WireAdapter-V-201802.00.4@aar'
-    compile files('libs/YouTubeAndroidPlayerApi.jar')
+    //compile files('libs/YouTubeAndroidPlayerApi.jar')
+    compile project(path: ':strawyoutubeplayer')
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }

@@ -29,7 +29,8 @@ public class ActSplash extends AppCompatActivity {
         setContentView(R.layout.act_splash);
         activity = this;
         context = this;
-        startActivity(new Intent(context, ActCustYoutubeOne.class));
+        //startActivity(new Intent(context, ActCustYoutubeOne.class));
+        startActivity(new Intent(context, ActYouTubePlayerView.class));
         finish();
         //SparkedArrayAdapter
         sysLstViewPaging = (NoneScrollListView) findViewById(R.id.sysLstViewPaging);

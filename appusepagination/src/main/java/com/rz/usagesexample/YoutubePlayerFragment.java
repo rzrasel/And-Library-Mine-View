@@ -64,7 +64,7 @@ public class YoutubePlayerFragment extends Fragment {
                         }
 
                         @Override
-                        public void onLoaded(String s) {
+                        public void onLoaded(String argVideoId) {
 
                         }
 
