@@ -25,7 +25,8 @@ public class ActSplash extends AppCompatActivity {
         setContentView(R.layout.act_splash);
         activity = this;
         context = this;
-        startActivity(new Intent(context, ActPaginationImp.class));
+        //startActivity(new Intent(context, ActPaginationImp.class));
+        startActivity(new Intent(context, ActReversePagination.class));
         finish();
         /*sysIdPagination = (ArmorPagination) findViewById(R.id.sysIdPagination);
         sysIdPagination.setTotalNumOfItems(150)

@@ -5,19 +5,19 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.rz.armorpagination.ArmorPagination;
+import com.rz.armorpagination.ArmorReversePagination;
 import com.rz.armorpagination.NixScrollListView;
 
 import java.util.ArrayList;
 
-public class ActPaginationImp extends AppCompatActivity {
+public class ActReversePagination extends AppCompatActivity {
     private Activity activity;
     private Context context;
     private NixScrollListView sysLstViewPaging;
-    private int TOTAL_LIST_ITEMS = 1030;
-    private int ITEMS_PER_PAGE = 100;
+    private int TOTAL_LIST_ITEMS = 73;
+    private int ITEMS_PER_PAGE = 7;
     private int STARTING_NUM = 0;
     private ArrayList<String> dataList = new ArrayList<String>();
     private ArrayAdapter<String> arrayAdapter;
@@ -25,7 +25,7 @@ public class ActPaginationImp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.act_pagination_imp);
+        setContentView(R.layout.act_reverse_pagination);
         activity = this;
         context = this;
         sysLstViewPaging = (NixScrollListView) findViewById(R.id.sysLstViewPaging);
@@ -33,16 +33,17 @@ public class ActPaginationImp extends AppCompatActivity {
             dataList.add("This is Item " + (i + 1));
         }
         loadList(0, ITEMS_PER_PAGE);
-        ArmorPagination sysIdPagination = (ArmorPagination) findViewById(R.id.sysIdPagination);
+        ArmorReversePagination sysIdPagination = (ArmorReversePagination) findViewById(R.id.sysIdPagination);
         sysIdPagination.setTotalNumOfItems(TOTAL_LIST_ITEMS)
                 .setNumOfItemsPerPage(ITEMS_PER_PAGE)
-                .setCurrentPage(STARTING_NUM)
+                //.setCurrentPage(STARTING_NUM)
                 .setPagerClickListener(new ArmorPagination.OnPagerClickListener() {
                     @Override
                     public void onClick(int argCurrentPage, int argStarting, int argEnding) {
                         loadList(argStarting, argEnding);
                     }
                 })
+                .initSetReverse()
                 .onBuildPager();
     }
 
