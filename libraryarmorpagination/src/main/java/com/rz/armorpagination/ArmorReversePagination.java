@@ -26,6 +26,7 @@ public class ArmorReversePagination extends LinearLayout {
     private int range = 5;
     private int offset = 0;
     private int currentPage = -1;
+    private boolean isDebug = true;
 
     public ArmorReversePagination(Context argContext) {
         this(argContext, null);
@@ -46,6 +47,7 @@ public class ArmorReversePagination extends LinearLayout {
         initValues();
         getTotalPages();
         getOffset();
+        onGeneratePaging();
     }
 
     private void initValues() {
@@ -67,7 +69,21 @@ public class ArmorReversePagination extends LinearLayout {
         return offset;
     }
 
+    private void onGeneratePaging() {
+        int startPoint = getTotalPages() - 1;
+        int endPoint = 0;
+        //for (int startGen = $pagination -> total_pages(); startGen >= 1; startGen--)
+        for (int pageCounter = startPoint; pageCounter >= endPoint; pageCounter--) {
+            int pageValue = pageCounter + 1;
+            pageValue--;
+            onDebugLog("Page: " + pageValue);
+        }
+    }
+
     private void onDebugLog(String argMessage) {
+        if (!isDebug) {
+            return;
+        }
         //System.out.println(this.getClass().getSimpleName() + "----------------------------");
         String msgPartInfo = "";
         Map<String, Integer> tracingMap = new HashMap<String, Integer>();
