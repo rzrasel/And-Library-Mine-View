@@ -44,7 +44,7 @@ public class ArmorReversePagination extends LinearLayout {
     }
 
     private void initView() {
-        currentPage = 5;
+        currentPage = 7;
         initValues();
         getTotalPages();
         getOffset();
@@ -80,7 +80,7 @@ public class ArmorReversePagination extends LinearLayout {
         //getLast = getEndingPage();
         int getTotalNode = getLast - starting;
         onDebugLog("TOTAL_NODE: " + getTotalNode + " LAST: " + getLast);
-        if (getLast >= getTotalPages()) {
+        if (getLast > getTotalPages()) {
             starting = (getTotalPages() - 1) - leftOffset * 2;
         }
         //onDebugLog("STARTING_NODE: " + getTotalNode + " LAST: " + getLast);
