@@ -44,10 +44,11 @@ public class ArmorReversePagination extends LinearLayout {
     }
 
     private void initView() {
+        currentPage = 11;
         initValues();
         getTotalPages();
         getOffset();
-        onGeneratePaging();
+        onReversePaging();
     }
 
     private void initValues() {
@@ -69,15 +70,49 @@ public class ArmorReversePagination extends LinearLayout {
         return offset;
     }
 
-    private void onGeneratePaging() {
-        int startPoint = getTotalPages() - 1;
-        int endPoint = 0;
-        //for (int startGen = $pagination -> total_pages(); startGen >= 1; startGen--)
-        for (int pageCounter = startPoint; pageCounter >= endPoint; pageCounter--) {
-            int pageValue = pageCounter + 1;
-            pageValue--;
-            onDebugLog("Page: " + pageValue);
+    //int argTotalPages, int argCurrentPage
+    private int getStartingPage() {
+        int starting = currentPage - 1;
+        int leftOffset = range / 2;
+        starting = starting - leftOffset;
+        int getTotalNode = starting;
+        if (starting <= 0) {
+            starting = 0;
         }
+        return starting;
+    }
+
+    private int getEndingPage(int argStartingPage) {
+        int ending = 0;
+        int rightOffset = range / 2;
+        //ending = argStartingPage + rightOffset * 2;
+        ending = (currentPage - 1) + rightOffset * 2;
+        if (ending >= getTotalPages()) {
+            ending = getTotalPages() - 1;
+        }
+        return ending;
+    }
+
+    private void onReversePaging() {
+        int startPoint = 0;
+        int endPoint = 0;
+        endPoint = getStartingPage();
+        startPoint = getEndingPage(endPoint);
+        //for (int startGen = $pagination -> total_pages(); startGen >= 1; startGen--)
+        onDebugLog("CURRENT: " + (currentPage - 1) + " STARTING: " + startPoint + " ENDING: " + endPoint);
+        String debugPage = "";
+        for (int pageCounter = startPoint; pageCounter >= endPoint; pageCounter--) {
+            int pageValue = pageCounter;
+            pageValue++;
+            if (pageValue == currentPage) {
+                debugPage += " [";
+            }
+            debugPage += " " + pageValue + " ";
+            if (pageValue == currentPage) {
+                debugPage += "] ";
+            }
+        }
+        onDebugLog("Page: " + debugPage);
     }
 
     private void onDebugLog(String argMessage) {
