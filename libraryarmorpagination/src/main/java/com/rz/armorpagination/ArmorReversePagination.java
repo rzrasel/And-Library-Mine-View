@@ -6,6 +6,11 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Rz Rasel on 2018-03-14.
@@ -63,23 +68,52 @@ public class ArmorReversePagination extends LinearLayout {
     }
 
     private void onDebugLog(String argMessage) {
-        System.out.println(this.getClass().getSimpleName() + "----------------------------");
+        //System.out.println(this.getClass().getSimpleName() + "----------------------------");
+        String msgPartInfo = "";
+        Map<String, Integer> tracingMap = new HashMap<String, Integer>();
         StackTraceElement[] elements = Thread.currentThread().getStackTrace();
         for (StackTraceElement element : elements) {
             String methodName = element.getMethodName();
             int lineNum = element.getLineNumber();
-            isLogMethodExists(methodName);
-            System.out.println(this.getClass().getSimpleName() + " - ELEMENT NAME: " + methodName + " Line: " + lineNum);
+            boolean isExists = isLogMethodExists(methodName);
+            if (isExists) {
+                /*if (msgPartInfo.isEmpty()) {
+                    msgPartInfo += methodName + " - (" + lineNum + ")";
+                }*/
+                //System.out.println(methodName + " - (" + lineNum + ")");
+                msgPartInfo += methodName + "(" + lineNum + ") ";
+                //tracingMap.put(methodName, lineNum);
+            }
+            //System.out.println(this.getClass().getSimpleName() + " - ELEMENT NAME: " + methodName + " Line: " + lineNum);
         }
-        System.out.println(this.getClass().getSimpleName() + "----------------------------");
-        System.out.println(this.getClass().getSimpleName() + " - DEBUG_LOG_PRINT: " + argMessage);
+        //System.out.println(this.getClass().getSimpleName() + "----------------------------");
+        if (tracingMap.size() > 0) {
+            //msgPartInfo = "";
+            List<String> list = new ArrayList<String>();
+            /*for (Map.Entry<String, Integer> entry : tracingMap.entrySet()) {
+                String mapValue = entry.getKey() + " - (" + entry.getValue() + ") ";
+                list.add(mapValue);
+            }*/
+            for (String result : tracingMap.keySet()) {
+                //System.out.println(result + " => " + tracingMap.get(result));
+                msgPartInfo += result + " - (" + tracingMap.get(result) + ") ";
+            }
+            //Collections.reverse(list);
+            //msgPartInfo = list.toString();
+        }
+        msgPartInfo = msgPartInfo.trim();
+        msgPartInfo = msgPartInfo.replaceAll("\\s+", ">");
+        System.out.println(this.getClass().getSimpleName() + " - DEBUG_LOG_PRINT: " + argMessage + " - " + msgPartInfo);
     }
 
     private boolean isLogMethodExists(String argMethodName) {
         Class cls = this.getClass();
-        System.out.println(this.getClass().getSimpleName() + " - EXISTS: " + cls);
+        //System.out.println(this.getClass().getSimpleName() + " - EXISTS: " + cls);
         //Method method = null;
         for (Method method : cls.getDeclaredMethods()) {
+            if (method.getName().equals("onDebugLog")) {
+                return false;
+            }
             if (method.getName().equals(argMethodName)) {
                 //System.out.println("Method " + argMethodName + " exists.");
                 return true;
@@ -101,3 +135,4 @@ public class ArmorReversePagination extends LinearLayout {
         return Thread.currentThread().getStackTrace()[2].getLineNumber();
     }
 }
+//IMPORTANT: https://stackoverflow.com/questions/42292731/java-check-if-a-class-exists-and-call-a-specific-method-if-it-exists?noredirect=1&lq=1
