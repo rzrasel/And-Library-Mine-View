@@ -34,7 +34,7 @@ public class ActReversePagination extends AppCompatActivity {
         }
         loadList(0, ITEMS_PER_PAGE);
         ArmorReversePagination sysIdPagination = (ArmorReversePagination) findViewById(R.id.sysIdPagination);
-        sysIdPagination.setTotalNumOfItems(TOTAL_LIST_ITEMS)
+        /*sysIdPagination.setTotalNumOfItems(TOTAL_LIST_ITEMS)
                 .setNumOfItemsPerPage(ITEMS_PER_PAGE)
                 //.setCurrentPage(STARTING_NUM)
                 .setPagerClickListener(new ArmorPagination.OnPagerClickListener() {
@@ -44,7 +44,7 @@ public class ActReversePagination extends AppCompatActivity {
                     }
                 })
                 .initSetReverse()
-                .onBuildPager();
+                .onBuildPager();*/
     }
 
     private void loadList(int argStarting, int argEnding) {
