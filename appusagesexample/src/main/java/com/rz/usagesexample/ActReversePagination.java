@@ -2,11 +2,10 @@ package com.rz.usagesexample;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 
-import com.rz.armorpagination.ArmorPagination;
 import com.rz.armorpagination.ArmorReversePagination;
 import com.rz.armorpagination.NixScrollListView;
 
@@ -16,7 +15,7 @@ public class ActReversePagination extends AppCompatActivity {
     private Activity activity;
     private Context context;
     private NixScrollListView sysLstViewPaging;
-    private int TOTAL_LIST_ITEMS = 73;
+    private int TOTAL_LIST_ITEMS = 173;
     private int ITEMS_PER_PAGE = 7;
     private int STARTING_NUM = 0;
     private ArrayList<String> dataList = new ArrayList<String>();

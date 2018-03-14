@@ -2,12 +2,17 @@ package com.rz.armorpagination;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +24,11 @@ import java.util.Map;
 public class ArmorReversePagination extends LinearLayout {
     private Activity activity;
     private Context context;
+    private HorizontalScrollView horizontalScrollView;
+    private LinearLayout linearLayout;
+    private Button[] paginationUIButtons;
+    private int pxBtnWidth = 40;
+    private int pxBtnHight = 32;
 
     private int totalItems = 54;
     private int itemPerPage = 5;
@@ -44,11 +54,105 @@ public class ArmorReversePagination extends LinearLayout {
     }
 
     private void initView() {
+        this.setOrientation(LinearLayout.VERTICAL);
+        setUpHorizontalScrollView();
+        //createFirstButton();
+        //createPreviousButton();
+        //createNextButton();
+        //createLastButton();
+        setUpLinearLayout();
+        horizontalScrollView.addView(linearLayout);
+        super.addView(horizontalScrollView);
+        ////
+        ////
+        ////
+        ////
+        ////
         currentPage = 7;
         initValues();
         getTotalPages();
         getOffset();
         onReversePaging();
+    }
+
+    private void setUpHorizontalScrollView() {
+        horizontalScrollView = new HorizontalScrollView(getContext());
+        horizontalScrollView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        horizontalScrollView.setVerticalScrollBarEnabled(false);
+        horizontalScrollView.setHorizontalScrollBarEnabled(false);
+        horizontalScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+    }
+
+    private void setUpLinearLayout() {
+        //linearLayout = new LinearLayout(getContext());
+        linearLayout = new LinearLayout(getContext());
+        linearLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+        linearLayout.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
+        //linearLayout.setBackgroundColor(Color.GRAY);
+        linearLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+        /*linearLayout.addView(btnFirst);
+        linearLayout.addView(btnPrevious);*/
+        createPaginationButton();
+        /*linearLayout.addView(btnNext);
+        linearLayout.addView(btnLast);*/
+        //linearLayout.setVisibility(LinearLayout.INVISIBLE);
+        //setPagerButton();
+    }
+
+    private void createPaginationButton() {
+        paginationUIButtons = new Button[range];
+        for (int uiButtonCounter = 0; uiButtonCounter < range; uiButtonCounter++) {
+            Button uiBtn = new Button(getContext(), null, android.R.style.Widget_Holo_Button_Borderless);
+            int dpWidth = (int) Utils.dpToPixel(getContext(), pxBtnWidth);
+            int dpHeight = (int) Utils.dpToPixel(getContext(), pxBtnHight);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dpWidth, dpHeight);
+            //RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dpWidth, LayoutParams.WRAP_CONTENT);
+            layoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
+            //layoutParams.setMargins(left, top, right, bottom);
+            //layoutParams.setMargins(120, 120, 120, 120);
+            uiBtn.setGravity(Gravity.CENTER);
+            uiBtn.setLayoutParams(layoutParams);
+            uiBtn.setLayoutParams(layoutParams);
+            uiBtn.setText("" + (uiButtonCounter + 1));
+            uiBtn.setTag("" + uiButtonCounter);
+            uiBtn.setTextSize(16);
+            uiBtn.setBackgroundResource(R.drawable.pager_gradient_current);
+            //pageBtns[forCounter].setTextColor(Color.parseColor("#006400"));
+            uiBtn.setTextColor(Color.parseColor("#717171"));
+
+
+
+
+            if (uiButtonCounter == 0) {
+                uiBtn.setBackgroundResource(R.drawable.pager_gradient_first);
+                /*if (currentPage == countStart) {
+                    pageBtns[forCounter].setBackgroundResource(R.drawable.pager_gradient_current_first);
+                }*/
+            }
+            if (uiButtonCounter == range - 1) {
+                uiBtn.setBackgroundResource(R.drawable.pager_gradient_last);
+                /*if (currentPage == countMax - 1) {
+                    pageBtns[forCounter].setBackgroundResource(R.drawable.pager_gradient_current_last);
+                }*/
+            }
+            LayoutParams layoutparams = (LinearLayout.LayoutParams) uiBtn.getLayoutParams();
+            //layoutparams.setMargins(25,25,25,25);
+            layoutparams.setMargins(8, 0, 8, 0);
+            uiBtn.setLayoutParams(layoutparams);
+            //System.out.println("for_count: " + forCounter + " cmax: " + countMax);
+            uiBtn.setBackgroundResource(R.drawable.pg_gd_one);
+
+
+
+            paginationUIButtons[uiButtonCounter] = uiBtn;
+            linearLayout.addView(paginationUIButtons[uiButtonCounter]);
+            onDebugLog("Button: " + uiButtonCounter);
+        }
+    }
+
+    @Override
+    public void addView(View argChild) {
+        horizontalScrollView.addView(argChild);
     }
 
     private void initValues() {
