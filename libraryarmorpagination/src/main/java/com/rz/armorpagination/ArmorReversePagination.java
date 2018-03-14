@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -105,9 +104,10 @@ public class ArmorReversePagination extends LinearLayout {
             Button uiBtn = new Button(getContext(), null, android.R.style.Widget_Holo_Button_Borderless);
             int dpWidth = (int) Utils.dpToPixel(getContext(), pxBtnWidth);
             int dpHeight = (int) Utils.dpToPixel(getContext(), pxBtnHight);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dpWidth, dpHeight);
+            LayoutParams layoutParams = new LinearLayout.LayoutParams(dpWidth, dpHeight);
+            //RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dpWidth, dpHeight);
             //RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dpWidth, LayoutParams.WRAP_CONTENT);
-            layoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
+            //layoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
             //layoutParams.setMargins(left, top, right, bottom);
             //layoutParams.setMargins(120, 120, 120, 120);
             uiBtn.setGravity(Gravity.CENTER);
@@ -136,6 +136,7 @@ public class ArmorReversePagination extends LinearLayout {
                 }*/
             }
             LayoutParams layoutparams = (LinearLayout.LayoutParams) uiBtn.getLayoutParams();
+            //RelativeLayout.LayoutParams layoutparams = (RelativeLayout.LayoutParams) uiBtn.getLayoutParams();
             //layoutparams.setMargins(25,25,25,25);
             layoutparams.setMargins(8, 0, 8, 0);
             uiBtn.setLayoutParams(layoutparams);
