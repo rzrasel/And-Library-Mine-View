@@ -16,7 +16,7 @@ public class ActReversePagination extends AppCompatActivity {
     private Context context;
     private NixScrollListView sysLstViewPaging;
     private int TOTAL_LIST_ITEMS = 173;
-    private int ITEMS_PER_PAGE = 27;
+    private int ITEMS_PER_PAGE = 7;
     private int STARTING_NUM = 0;
     private ArrayList<String> dataList = new ArrayList<String>();
     private ArrayAdapter<String> arrayAdapter;

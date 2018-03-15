@@ -29,10 +29,10 @@ public class ArmorReversePagination extends LinearLayout {
     private int pxBtnWidth = 40;
     private int pxBtnHight = 32;
 
-    private int totalItems = 54;
-    private int itemPerPage = 5;
+    private int totalItems = 250;
+    private int itemPerPage = 10;
     private int totalPages = 0;
-    private int range = 5;
+    private int range = 3;
     private int offset = 0;
     private int currentPage = -1;
     private boolean isDebug = true;
@@ -53,6 +53,9 @@ public class ArmorReversePagination extends LinearLayout {
     }
 
     private void initView() {
+        if (range % 2 == 0) {
+            range = range + 1;
+        }
         this.setOrientation(LinearLayout.VERTICAL);
         setUpHorizontalScrollView();
         //createFirstButton();
@@ -67,11 +70,21 @@ public class ArmorReversePagination extends LinearLayout {
         ////
         ////
         ////
-        currentPage = 7;
+        //currentPage = 4;
         initValues();
         getTotalPages();
         getOffset();
-        onReversePaging();
+        onSetDefaultStarting(true);
+        onReadyReversePaging();
+    }
+
+    private void onSetDefaultStarting(boolean isReverse) {
+        if (isReverse) {
+            currentPage = getTotalPages();
+        } else {
+            currentPage = 1;
+        }
+        onDebugLog("->>>>>>>>>>>>>>>>>> " + currentPage);
     }
 
     private void setUpHorizontalScrollView() {
@@ -91,14 +104,14 @@ public class ArmorReversePagination extends LinearLayout {
         linearLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         /*linearLayout.addView(btnFirst);
         linearLayout.addView(btnPrevious);*/
-        createPaginationButton();
+        onCreateUIPaginationButton();
         /*linearLayout.addView(btnNext);
         linearLayout.addView(btnLast);*/
         //linearLayout.setVisibility(LinearLayout.INVISIBLE);
         //setPagerButton();
     }
 
-    private void createPaginationButton() {
+    private void onCreateUIPaginationButton() {
         paginationUIButtons = new Button[range];
         for (int uiButtonCounter = 0; uiButtonCounter < range; uiButtonCounter++) {
             Button uiBtn = new Button(getContext(), null, android.R.style.Widget_Holo_Button_Borderless);
@@ -121,8 +134,6 @@ public class ArmorReversePagination extends LinearLayout {
             uiBtn.setTextColor(Color.parseColor("#717171"));
 
 
-
-
             if (uiButtonCounter == 0) {
                 uiBtn.setBackgroundResource(R.drawable.pager_gradient_first);
                 /*if (currentPage == countStart) {
@@ -142,12 +153,45 @@ public class ArmorReversePagination extends LinearLayout {
             uiBtn.setLayoutParams(layoutparams);
             //System.out.println("for_count: " + forCounter + " cmax: " + countMax);
             uiBtn.setBackgroundResource(R.drawable.pg_gd_one);
-
+            uiBtn.setOnClickListener(new OnPagerBtnClickListener());
 
 
             paginationUIButtons[uiButtonCounter] = uiBtn;
             linearLayout.addView(paginationUIButtons[uiButtonCounter]);
-            onDebugLog("Button: " + uiButtonCounter);
+            //onDebugLog("Button: " + uiButtonCounter);
+        }
+    }
+
+    private void onShowUIButton(int argUIPosition, int argButtonValue) {
+        paginationUIButtons[argUIPosition].setText("" + argButtonValue);
+        paginationUIButtons[argUIPosition].setTag("" + argButtonValue);
+        paginationUIButtons[argUIPosition].setTextColor(Color.parseColor("#717171"));
+        paginationUIButtons[argUIPosition].setBackgroundResource(R.drawable.pg_gd_one);
+        if (argButtonValue == currentPage) {
+            paginationUIButtons[argUIPosition].setTextColor(Color.parseColor("#feffff"));
+            paginationUIButtons[argUIPosition].setBackgroundResource(R.drawable.pg_gd_one_current);
+        }
+    }
+
+    private void onHideUIButton(int argLastPosition) {
+        if (argLastPosition < paginationUIButtons.length) {
+            for (int i = argLastPosition; i < paginationUIButtons.length; i++) {
+                paginationUIButtons[i].setVisibility(View.GONE);
+            }
+        }
+        //onDebugLog("LAST POSITION: " + argLastPosition + " LENGTH: " + paginationUIButtons.length);
+    }
+
+    public class OnPagerBtnClickListener implements OnClickListener {
+        @Override
+        public void onClick(View argView) {
+            int tagValue = Integer.parseInt(argView.getTag().toString());
+            if (tagValue == currentPage) {
+                //System.out.println("TAG_CURRENT: " + tagValue);
+                return;
+            }
+            currentPage = tagValue;
+            onReadyReversePaging();
         }
     }
 
@@ -162,6 +206,9 @@ public class ArmorReversePagination extends LinearLayout {
     }
 
     private int getTotalPages() {
+        if (totalItems <= 0 || itemPerPage <= 0) {
+            return 0;
+        }
         int val = totalItems % itemPerPage;
         val = (val == 0) ? 0 : 1;
         int total = totalItems / itemPerPage + val;
@@ -215,26 +262,31 @@ public class ArmorReversePagination extends LinearLayout {
         return ending;
     }
 
-    private void onReversePaging() {
+    private void onReadyReversePaging() {
         int startPoint = 0;
         int endPoint = 0;
         endPoint = getStartingPage();
         startPoint = getEndingPage();
+        onDebugLog("===================>" + paginationUIButtons.length);
         //startPoint = currentPage - 1;
         //for (int startGen = $pagination -> total_pages(); startGen >= 1; startGen--)
         onDebugLog("CURRENT: " + (currentPage - 1) + " STARTING: " + startPoint + " ENDING: " + endPoint);
         String debugPage = "";
+        int uiButtonCounter = 0;
         for (int pageCounter = startPoint; pageCounter >= endPoint; pageCounter--) {
             int pageValue = pageCounter;
             pageValue++;
-            if (pageValue == currentPage) {
-                debugPage += " [";
-            }
-            debugPage += " " + pageValue + " ";
-            if (pageValue == currentPage) {
-                debugPage += "] ";
-            }
+            /*paginationUIButtons[uiButtonCounter].setText("" + pageValue);
+            paginationUIButtons[uiButtonCounter].setTag("" + pageValue);*/
+            onShowUIButton(uiButtonCounter, pageValue);
+            /*if (pageValue == currentPage) {
+                debugPage += "[" + pageValue + "] ";
+            } else {
+                debugPage += pageValue + " ";
+            }*/
+            uiButtonCounter++;
         }
+        onHideUIButton(uiButtonCounter);
         onDebugLog("Page: " + debugPage);
     }
 
