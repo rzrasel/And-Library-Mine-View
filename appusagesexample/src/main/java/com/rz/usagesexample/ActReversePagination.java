@@ -15,8 +15,8 @@ public class ActReversePagination extends AppCompatActivity {
     private Activity activity;
     private Context context;
     private NixScrollListView sysLstViewPaging;
-    private int TOTAL_LIST_ITEMS = 173;
-    private int ITEMS_PER_PAGE = 7;
+    private int TOTAL_LIST_ITEMS = 52;
+    private int ITEMS_PER_PAGE = 5;
     private int STARTING_NUM = 0;
     private ArrayList<String> dataList = new ArrayList<String>();
     private ArrayAdapter<String> arrayAdapter;
@@ -33,9 +33,20 @@ public class ActReversePagination extends AppCompatActivity {
         }
         loadList(0, ITEMS_PER_PAGE);
         ArmorReversePagination sysIdPagination = (ArmorReversePagination) findViewById(R.id.sysIdPagination);
-        sysIdPagination.onSetTotalItem(344)
-                .onSetItemPerPage(10)
-                .onRunPagination();
+        sysIdPagination.onSetTotalItem(TOTAL_LIST_ITEMS)
+                .onSetItemPerPage(ITEMS_PER_PAGE)
+                .setPagerClickListener(new ArmorReversePagination.OnPaginationClickListener() {
+                    @Override
+                    public void onClick(int argCurrentPage, int argStarting, int argEnding) {
+                        loadList(argStarting, argEnding);
+                    }
+                })
+                .onRunPagination(new ArmorReversePagination.OnPaginationInitialRunListener() {
+                    @Override
+                    public void onRun(int argCurrentPage, int argStarting, int argEnding) {
+                        loadList(argStarting, argEnding);
+                    }
+                });
         /*sysIdPagination.setTotalNumOfItems(TOTAL_LIST_ITEMS)
                 .setNumOfItemsPerPage(ITEMS_PER_PAGE)
                 //.setCurrentPage(STARTING_NUM)
@@ -51,11 +62,11 @@ public class ActReversePagination extends AppCompatActivity {
 
     private void loadList(int argStarting, int argEnding) {
         ArrayList<String> sort = new ArrayList<String>();
-        System.out.println("STARTING: " + argStarting + " - ENDING: " + argEnding);
+        System.out.println("STARTING<>: " + argStarting + " - ENDING<>: " + argEnding);
         System.out.println("PagerButton:============================");
         /*int start = argStarting * NUM_ITEMS_PAGE;
         (start) + NUM_ITEMS_PAGE;*/
-        for (int i = argStarting; i < argEnding; i++) {
+        for (int i = argEnding; i >= argStarting; i--) {
             /*if (i < dataList.size()) {
                 sort.add(dataList.get(i));
             } else {
@@ -64,9 +75,14 @@ public class ActReversePagination extends AppCompatActivity {
             /*if (i >= dataList.size()) {
                 break;
             }*/
+            System.out.println("PagerButton:============================: <" + i + ">");
+            /*if (i < dataList.size() && i > -1) {
+                sort.add(dataList.get(i));
+            }*/
             sort.add(dataList.get(i));
         }
         arrayAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, sort);
         sysLstViewPaging.setAdapter(arrayAdapter);
+        arrayAdapter.notifyDataSetChanged();
     }
 }

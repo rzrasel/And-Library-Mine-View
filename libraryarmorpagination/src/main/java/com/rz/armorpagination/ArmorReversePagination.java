@@ -38,6 +38,9 @@ public class ArmorReversePagination extends LinearLayout {
     private boolean isDebug = true;
     private boolean isReverse = true;
 
+    private OnPaginationInitialRunListener pagingInitialRunListener;
+    private OnPaginationClickListener pagingClickListener;
+
     public ArmorReversePagination(Context argContext) {
         this(argContext, null);
     }
@@ -154,7 +157,7 @@ public class ArmorReversePagination extends LinearLayout {
             uiBtn.setLayoutParams(layoutparams);
             //System.out.println("for_count: " + forCounter + " cmax: " + countMax);
             uiBtn.setBackgroundResource(R.drawable.pg_gd_one);
-            uiBtn.setOnClickListener(new OnPagerBtnClickListener());
+            uiBtn.setOnClickListener(new OnPagerButtonClickListener());
 
 
             paginationUIButtons[uiButtonCounter] = uiBtn;
@@ -181,19 +184,6 @@ public class ArmorReversePagination extends LinearLayout {
             }
         }
         //onDebugLog("LAST POSITION: " + argLastPosition + " LENGTH: " + paginationUIButtons.length);
-    }
-
-    public class OnPagerBtnClickListener implements OnClickListener {
-        @Override
-        public void onClick(View argView) {
-            int tagValue = Integer.parseInt(argView.getTag().toString());
-            if (tagValue == currentPage) {
-                //System.out.println("TAG_CURRENT: " + tagValue);
-                return;
-            }
-            currentPage = tagValue;
-            onReadyReversePaging();
-        }
     }
 
     @Override
@@ -303,8 +293,61 @@ public class ArmorReversePagination extends LinearLayout {
         return this;
     }
 
-    public void onRunPagination() {
+    public void onRunPagination(OnPaginationInitialRunListener argPagingInitialRunListener) {
+        pagingInitialRunListener = argPagingInitialRunListener;
         onReadyReversePaging();
+        int startingNumber = getOffset();
+        //startingNumber = startingNumber - 1;
+        int endingNumber = startingNumber + itemPerPage;
+        if (endingNumber > totalItems) {
+            endingNumber = (totalItems - startingNumber) + startingNumber;
+        }
+        //startingNumber--;
+        if (isReverse) {
+            endingNumber--;
+        }
+        if (pagingInitialRunListener != null) {
+            pagingInitialRunListener.onRun(currentPage, startingNumber, endingNumber);
+        }
+    }
+
+    public class OnPagerButtonClickListener implements OnClickListener {
+        @Override
+        public void onClick(View argView) {
+            int tagValue = Integer.parseInt(argView.getTag().toString());
+            if (tagValue == currentPage) {
+                //System.out.println("TAG_CURRENT: " + tagValue);
+                return;
+            }
+            currentPage = tagValue;
+            onReadyReversePaging();
+            if (pagingClickListener != null) {
+                int startingNumber = getOffset();
+                //startingNumber = startingNumber - 1;
+                int endingNumber = startingNumber + itemPerPage;
+                if (endingNumber > totalItems) {
+                    endingNumber = (totalItems - startingNumber) + startingNumber;
+                }
+                //startingNumber++;
+                if (isReverse) {
+                    endingNumber--;
+                }
+                pagingClickListener.onClick(currentPage, startingNumber, endingNumber);
+            }
+        }
+    }
+
+    public ArmorReversePagination setPagerClickListener(OnPaginationClickListener argPagingClickListener) {
+        pagingClickListener = argPagingClickListener;
+        return this;
+    }
+
+    public interface OnPaginationInitialRunListener {
+        public void onRun(int argCurrentPage, int argStarting, int argEnding);
+    }
+
+    public interface OnPaginationClickListener {
+        public void onClick(int argCurrentPage, int argStarting, int argEnding);
     }
 
     private void onDebugLog(String argMessage) {
