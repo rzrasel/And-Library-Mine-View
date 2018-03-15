@@ -32,10 +32,11 @@ public class ArmorReversePagination extends LinearLayout {
     private int totalItems = 250;
     private int itemPerPage = 10;
     private int totalPages = 0;
-    private int range = 3;
+    private int range = 5;
     private int offset = 0;
     private int currentPage = -1;
     private boolean isDebug = true;
+    private boolean isReverse = true;
 
     public ArmorReversePagination(Context argContext) {
         this(argContext, null);
@@ -74,7 +75,7 @@ public class ArmorReversePagination extends LinearLayout {
         initValues();
         getTotalPages();
         getOffset();
-        onSetDefaultStarting(true);
+        onSetDefaultStarting(isReverse);
         onReadyReversePaging();
     }
 
@@ -288,6 +289,22 @@ public class ArmorReversePagination extends LinearLayout {
         }
         onHideUIButton(uiButtonCounter);
         onDebugLog("Page: " + debugPage);
+    }
+
+    public ArmorReversePagination onSetTotalItem(int argTotalItems) {
+        totalItems = argTotalItems;
+        onSetDefaultStarting(isReverse);
+        return this;
+    }
+
+    public ArmorReversePagination onSetItemPerPage(int argItemPerPage) {
+        itemPerPage = argItemPerPage;
+        onSetDefaultStarting(isReverse);
+        return this;
+    }
+
+    public void onRunPagination() {
+        onReadyReversePaging();
     }
 
     private void onDebugLog(String argMessage) {
