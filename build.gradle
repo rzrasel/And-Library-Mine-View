@@ -32,8 +32,8 @@ ext {
 
     extMinSdkVersion = 15
     extTargetSdkVersion = 26
-    extVersionCode = 201802012
-    extVersionName = "201802.01.2"
+    extVersionCode = 201802023
+    extVersionName = "201802.02.3"
 
     supportLibraryVersion = '27.0.2'
     playServicesVersion = '11.8.0'
