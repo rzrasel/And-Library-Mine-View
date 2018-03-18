@@ -38,7 +38,7 @@ dependencies {
     compile 'com.rz.armorpagination.aar:ArmorPagination-V-201802.01.2@aar'
     compile 'com.rz.wareadapter.aar:WireAdapter-V-201802.00.4@aar'
     //compile files('libs/YouTubeAndroidPlayerApi.jar')
-    compile project(path: ':strawyoutubeplayer')
+    compile project(path: ':librarystrawyoutubeplayer')
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }

@@ -1,1 +1,1 @@
-include ':appusepagination', ':strawyoutubeplayer'
+include ':appusepagination', ':librarystrawyoutubeplayer'
