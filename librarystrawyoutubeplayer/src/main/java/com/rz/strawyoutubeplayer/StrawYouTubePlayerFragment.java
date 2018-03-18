@@ -43,6 +43,7 @@ public class StrawYouTubePlayerFragment extends YouTubePlayerSupportFragment {
             activePlayer = argYouTubePlayer;
             //activePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.CHROMELESS);
             activePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
+            activePlayer.setFullscreenControlFlags(0);
             /*if (!argWasRestored) {
                 activePlayer.loadVideo(getArguments().getString("youtube_video_id"), 0);
                 //System.out.println("VIDEO: " + getArguments().getString("youtube_video_id"));
