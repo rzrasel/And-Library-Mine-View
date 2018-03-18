@@ -127,11 +127,27 @@ public class StrawYouTubePlayerFragment extends YouTubePlayerSupportFragment {
         }
 
         @Override
-        public void onBuffering(boolean b) {
+        public void onBuffering(boolean argIsBuffering) {
         }
 
         @Override
-        public void onSeekTo(int i) {
+        public void onSeekTo(int argEndPositionMillis) {
         }
     };
+
+    private static final int parseInt(String intString, int defaultValue) {
+        try {
+            return intString != null ? Integer.valueOf(intString) : defaultValue;
+        } catch (NumberFormatException e) {
+            return defaultValue;
+        }
+    }
+
+    private String formatTime(int millis) {
+        int seconds = millis / 1000;
+        int minutes = seconds / 60;
+        int hours = minutes / 60;
+
+        return (hours == 0 ? "" : hours + ":") + String.format("%02d:%02d", minutes % 60, seconds % 60);
+    }
 }
