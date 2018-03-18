@@ -6,10 +6,10 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.rz.usagesexample"
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 201803001
-        versionName "201803.00.1"
+        minSdkVersion extMinSdkVersion
+        targetSdkVersion extTargetSdkVersion
+        versionCode extVersionCode
+        versionName extVersionName
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         def date = new Date();

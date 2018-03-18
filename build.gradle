@@ -25,3 +25,16 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+ext {
+    extAppName = "Armor Pagination"
+    extCompileSdkVersion = 26
+    extBuildToolsVersion = '26.0.2'
+
+    extMinSdkVersion = 15
+    extTargetSdkVersion = 26
+    extVersionCode = 201802023
+    extVersionName = "201802.02.3"
+
+    supportLibraryVersion = '27.0.2'
+    playServicesVersion = '11.8.0'
+}
