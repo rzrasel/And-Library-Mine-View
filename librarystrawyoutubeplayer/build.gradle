@@ -12,7 +12,7 @@ android {
         versionName extVersionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        archivesBaseName = "com.rz.angularprogressview"
+        archivesBaseName = "com.rz.strawyoutubeplayer"
         version = android.defaultConfig.versionName
 
     }
