@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/And-Straw-Youtube-Player.iml" filepath="$PROJECT_DIR$/And-Straw-Youtube-Player.iml" />
+      <module fileurl="file://$PROJECT_DIR$/And Straw Youtube Player.iml" filepath="$PROJECT_DIR$/And Straw Youtube Player.iml" />
       <module fileurl="file://$PROJECT_DIR$/appusepagination/appusepagination.iml" filepath="$PROJECT_DIR$/appusepagination/appusepagination.iml" />
       <module fileurl="file://$PROJECT_DIR$/librarystrawyoutubeplayer/librarystrawyoutubeplayer.iml" filepath="$PROJECT_DIR$/librarystrawyoutubeplayer/librarystrawyoutubeplayer.iml" />
     </modules>
