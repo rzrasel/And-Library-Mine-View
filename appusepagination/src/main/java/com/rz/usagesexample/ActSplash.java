@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 
 import com.rz.armorpagination.ArmorPagination;
 import com.rz.armorpagination.NoneScrollListView;
-import com.rz.usagesexample.custone.ActCustYoutubeOne;
+import com.rz.strawyoutubeplayer.ActStrawTest;
 
 import java.util.ArrayList;
 
@@ -30,10 +30,11 @@ public class ActSplash extends AppCompatActivity {
         activity = this;
         context = this;
         //startActivity(new Intent(context, ActCustYoutubeOne.class));
-        startActivity(new Intent(context, ActYouTubePlayerView.class));
-        finish();
+        new ActStrawTest(context);
+        /*startActivity(new Intent(context, ActYouTubePlayerView.class));
+        finish();*/
         //SparkedArrayAdapter
-        sysLstViewPaging = (NoneScrollListView) findViewById(R.id.sysLstViewPaging);
+        /*sysLstViewPaging = (NoneScrollListView) findViewById(R.id.sysLstViewPaging);
         for (int i = 0; i < TOTAL_LIST_ITEMS; i++) {
             dataList.add("This is Item " + (i + 1));
         }
@@ -48,7 +49,7 @@ public class ActSplash extends AppCompatActivity {
                         loadList(argStarting, argEnding);
                     }
                 })
-                .onBuildPager();
+                .onBuildPager();*/
     }
 
     private void loadList(int argStarting, int argEnding) {
