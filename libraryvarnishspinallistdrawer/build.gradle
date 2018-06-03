@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 20171201
-        versionName "201712.0.1"
+        versionCode 201805001
+        versionName "201805.00.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //setProperty("archivesBaseName", "-v-" + + versionName)

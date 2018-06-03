@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/And Varnish View Spinal List Drawer.iml" filepath="$PROJECT_DIR$/And Varnish View Spinal List Drawer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appusagesexample/appusagesexample.iml" filepath="$PROJECT_DIR$/appusagesexample/appusagesexample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraryvarnishspinallistdrawer/libraryvarnishspinallistdrawer.iml" filepath="$PROJECT_DIR$/libraryvarnishspinallistdrawer/libraryvarnishspinallistdrawer.iml" />
+    </modules>
+  </component>
+</project>
