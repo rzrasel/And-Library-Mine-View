@@ -1,6 +1,7 @@
 package com.rz.wareadapter;
 
 import android.content.Context;
+import android.support.v4.util.LogWriter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ public class SparkedArrayAdapter<T> extends ArrayAdapter<T> {
     public ArrayList<SparkedModelRowViewFields> rowViewFieldListItems = new ArrayList<SparkedModelRowViewFields>();
     private ArrayList<T> adapterListItems; // = new ArrayList<ModelInit>();
     private OnFieldListenerHandler onFieldListenerHandler = null;
+    private OnExternalListenerHandler onExternalListenerHandler = null;
     //private AdapterDynamicArrayAdapter.OnEventsListenerHandler onEventsListenerHandler = null;
     private boolean isClicked = false;
     private int selectedPosition;
@@ -56,6 +58,11 @@ public class SparkedArrayAdapter<T> extends ArrayAdapter<T> {
 
     public SparkedArrayAdapter onSetRowViewFieldListenerHandler(OnFieldListenerHandler argOnFieldListenerHandler) {
         onFieldListenerHandler = argOnFieldListenerHandler;
+        return this;
+    }
+
+    public SparkedArrayAdapter onSetExternalListenerHandler(OnExternalListenerHandler argOnExternalListenerHandler) {
+        onExternalListenerHandler = argOnExternalListenerHandler;
         return this;
     }
 
@@ -100,8 +107,16 @@ public class SparkedArrayAdapter<T> extends ArrayAdapter<T> {
                 ImageView rowField = null;
                 rowField = (ImageView) itemField.getFieldObject();
                 if (hashMapRowIdValueItem.containsKey(fieldResourceId)) {
-                    int resourceId = Integer.valueOf(hashMapRowIdValueItem.get(fieldResourceId));
-                    rowField.setImageDrawable(context.getResources().getDrawable(resourceId));
+                    if (isInteger(hashMapRowIdValueItem.get(fieldResourceId))) {
+                        //System.out.println("Value is integer");
+                        int resourceId = Integer.valueOf(hashMapRowIdValueItem.get(fieldResourceId));
+                        rowField.setImageDrawable(context.getResources().getDrawable(resourceId));
+                    } else {
+                        System.out.println("Value is not integer");
+                        if (onExternalListenerHandler != null) {
+                            onExternalListenerHandler.onFileManage(rowField, hashMapRowIdValueItem.get(fieldResourceId));
+                        }
+                    }
                 }
                 //System.out.println(itemField.getFieldResourceId());
             }
@@ -134,6 +149,10 @@ public class SparkedArrayAdapter<T> extends ArrayAdapter<T> {
         //Customer cust = (Customer) pObject;
     }
 
+    public interface OnExternalListenerHandler {
+        public void onFileManage(View argView, String argValue);
+    }
+
     public enum FIELD_TYPE {
         TEXT_VIEW("text_view"),
         IMAGE_VIEW("image_view");
@@ -145,6 +164,15 @@ public class SparkedArrayAdapter<T> extends ArrayAdapter<T> {
 
         public String getFieldType() {
             return this.fieldType;
+        }
+    }
+
+    public boolean isInteger(String argStrValue) {
+        try {
+            Integer.parseInt(argStrValue);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 }

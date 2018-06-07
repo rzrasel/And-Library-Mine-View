@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.1.2'
         
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -32,8 +32,8 @@ ext {
 
     extMinSdkVersion = 15
     extTargetSdkVersion = 26
-    extVersionCode = 201802004
-    extVersionName = "201802.00.4"
+    extVersionCode = 201803010
+    extVersionName = "201803.02.1"
 
     supportLibraryVersion = '27.0.2'
     appcompatLibraryVersion = "26.1.0"

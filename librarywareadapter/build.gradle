@@ -13,7 +13,7 @@ android {
         versionName extVersionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        archivesBaseName = extAppName + " - com.rz.wareadapter"
+        archivesBaseName = extAppName + "-com.rz.wareadapter"
         version = android.defaultConfig.versionName
 
     }

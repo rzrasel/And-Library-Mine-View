@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -40,6 +41,12 @@ public class ActSplash extends AppCompatActivity {
         rowViewFieldListItems.add(adapterListAdapter.onSetRowViewField(SparkedArrayAdapter.FIELD_TYPE.TEXT_VIEW, "sysDrawerDescription"));
         adapterListAdapter.onSetRowViewFieldList(rowViewFieldListItems);
         sysLstView.setAdapter(adapterListAdapter);
+        adapterListAdapter.onSetExternalListenerHandler(new SparkedArrayAdapter.OnExternalListenerHandler() {
+            @Override
+            public void onFileManage(View argView, String argValue) {
+                System.out.println("EXTERNAL: " + argValue);
+            }
+        });
     }
 
     public void onSetDrawerMenuItems() {
