@@ -120,6 +120,13 @@ public class SparkedArrayAdapter<T> extends ArrayAdapter<T> {
                     }
                 }
                 //System.out.println(itemField.getFieldResourceId());
+            } else if (object instanceof ProgressBar) {
+                ProgressBar rowField = null;
+                rowField = (ProgressBar) itemField.getFieldObject();
+                if (hashMapRowIdValueItem.containsKey(fieldResourceId)) {
+                    if (isInteger(hashMapRowIdValueItem.get(fieldResourceId))) {
+                    }
+                }
             }
             //System.out.println("------" + itemScope.getListenerType());
         }
@@ -155,6 +162,7 @@ public class SparkedArrayAdapter<T> extends ArrayAdapter<T> {
 
     public interface OnExternalListenerHandler {
         public void onFileManage(View argView, String argValue);
+        //public void onFileManage(ViewGroup argViewGroup, String argValue);
     }
 
     public enum FIELD_TYPE {

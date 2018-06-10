@@ -41,12 +41,12 @@ public class ActSplash extends AppCompatActivity {
         rowViewFieldListItems.add(adapterListAdapter.onSetRowViewField(SparkedArrayAdapter.FIELD_TYPE.TEXT_VIEW, "sysDrawerDescription"));
         adapterListAdapter.onSetRowViewFieldList(rowViewFieldListItems);
         sysLstView.setAdapter(adapterListAdapter);
-        adapterListAdapter.onSetExternalListenerHandler(new SparkedArrayAdapter.OnExternalListenerHandler() {
+        /*adapterListAdapter.onSetExternalListenerHandler(new SparkedArrayAdapter.OnExternalListenerHandler() {
             @Override
             public void onFileManage(View argView, String argValue) {
                 System.out.println("EXTERNAL: " + argValue);
             }
-        });
+        });*/
     }
 
     public void onSetDrawerMenuItems() {
